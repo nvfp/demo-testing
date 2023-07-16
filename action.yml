@@ -1,0 +1,25 @@
+name: "Not GitHub Actions, just experimental."
+description: "For testing and experimental purposes."
+author: "NVfastplease"
+branding:
+  icon: alert-triangle
+  color: orange
+
+inputs:
+  foo:
+    description: abc
+    required: true
+  bar:
+    description: xyz
+    required: true
+
+runs:
+  using: 'composite'
+  steps:      
+    - shell: bash
+      env:
+        FOO: ${{ inputs.foo }}
+        BAR: ${{ inputs.bar }}
+      run: |
+        chmod +x $GITHUB_ACTION_PATH/dir/main.sh
+        $GITHUB_ACTION_PATH/dir/main.sh
