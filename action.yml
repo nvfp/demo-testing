@@ -13,11 +13,13 @@ inputs:
     description: xyz
     required: true
 
-env:
-  TESTFOO: ${{ inputs.foo }}
+# env:
+#   TESTFOO: ${{ inputs.foo }}
 
 runs:
   using: 'composite'
+  env:
+    TESTFOO: ${{ inputs.foo }}
   steps:
     # - name: Set up Python
     #   uses: actions/setup-python@v4
