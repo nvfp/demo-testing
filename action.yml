@@ -22,6 +22,7 @@ runs:
         python-version: 3.8
 
     - name: Foo
+      shell: bash
       run: |
         echo "CWD foo: '$(pwd)'"
         echo "---"
@@ -33,6 +34,7 @@ runs:
         ref: main
 
     - name: Foo
+      # shell: bash
       run: |
         echo "CWD bar: '$(pwd)'"
         echo "---"
