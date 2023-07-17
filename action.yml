@@ -21,26 +21,18 @@ runs:
       with:
         python-version: 3.8
 
-    - name: Foo
+    - name: Run prepare
       shell: bash
-      run: |
-        echo "CWD foo: '$(pwd)'"
-        echo "---"
-        ls
+      run: $GITHUB_ACTION_PATH/dir/prepare.sh
 
     - name: Checkout main branch
       uses: actions/checkout@v3
       with:
         ref: main
 
-    - name: Foo
+    - name: Run main
       shell: bash
-      run: |
-        echo "::group:: Title 1"
-        echo "CWD bar: '$(pwd)'"
-        echo "---"
-        ls
-        echo "::endgroup::"
+      run: $GITHUB_ACTION_PATH/dir/main.sh
 
     - shell: bash
       env:
