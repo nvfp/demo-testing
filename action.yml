@@ -1,6 +1,6 @@
 # Please note that after a release is created (for example, `nvfp/now-i-can-sleep@1.0.0`),
 # any changes made to the repository will not be reflected in that version (i.e., if users
-# use version `1.0.0`, the changes will not be present).
+# use version `1.0.0`, the changes will not be present).  ~Nicholas@20230717
 
 
 name: "Not GitHub Actions, just experimental."
@@ -11,10 +11,10 @@ branding:
   color: orange
 
 inputs:
-  foo:
+  load:
     description: abc
     required: true
-  bar:
+  dock:
     description: xyz
     required: true
 
@@ -26,30 +26,36 @@ runs:
     #   with:
     #     python-version: 3.8
 
-    - name: Set script permissions
-      shell: bash
-      run: find $GITHUB_ACTION_PATH/nics-compiler/workflows -type f -name "*.sh" -exec chmod +x {} \;
+    # - name: Set script permissions
+    #   shell: bash
+    #   run: find $GITHUB_ACTION_PATH/nics-compiler/workflows -type f -name "*.sh" -exec chmod +x {} \;
+    
+    - name: Foo
+      run: ls
     
     - name: Checkout Load branch
       uses: actions/checkout@v3
       with:
-        ref: main
+        ref: ${{ inputs.load }}
+    
+    - name: Foo
+      run: ls
 
-    - name: Set up NICS working directory
-      shell: bash
-      env:
-        TESTFOO: ${{ inputs.foo }}
-      run: $GITHUB_ACTION_PATH/nics-compiler/workflows/setup-working-dir.sh
+    # - name: Set up NICS working directory
+    #   shell: bash
+    #   env:
+    #     TESTFOO: ${{ inputs.foo }}
+    #   run: $GITHUB_ACTION_PATH/nics-compiler/workflows/setup-working-dir.sh
 
-    - name: Checkout Dock branch
-      uses: actions/checkout@v3
-      with:
-        ref: mocking-nics-workflow
+    # - name: Checkout Dock branch
+    #   uses: actions/checkout@v3
+    #   with:
+    #     ref: mocking-nics-workflow
 
-    - name: Compile
-      shell: bash
-      run: $GITHUB_ACTION_PATH/nics-compiler/workflows/compile.sh
+    # - name: Compile
+    #   shell: bash
+    #   run: $GITHUB_ACTION_PATH/nics-compiler/workflows/compile.sh
 
-    - name: Deploy
-      shell: bash
-      run: $GITHUB_ACTION_PATH/nics-compiler/workflows/deploy.sh
+    # - name: Deploy
+    #   shell: bash
+    #   run: $GITHUB_ACTION_PATH/nics-compiler/workflows/deploy.sh

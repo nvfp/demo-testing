@@ -1,3 +1,4 @@
-echo "compile.sh: '$foo'"
-ls
-echo "------"
+echo "::group:: Compile"
+
+
+echo "::endgroup::"
