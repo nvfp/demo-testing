@@ -22,7 +22,7 @@ ls
 echo "DEBUG: ls command completed"
 
 echo "DEBUG: Running 'cp $GH_REPO_NAME/$CONTAINER/ __nics_work_dir__/'"
-cp $GH_REPO_NAME/$CONTAINER/ __nics_work_dir__/
+cp -r $GH_REPO_NAME/$CONTAINER/ __nics_work_dir__/
 
 echo 'DEBUG: Running `ls __nics_work_dir__`'
 ls __nics_work_dir__
