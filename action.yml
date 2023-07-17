@@ -15,36 +15,34 @@ inputs:
 
 runs:
   using: 'composite'
-  steps:      
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: 3.8
+  steps:
+    # - name: Set up Python
+    #   uses: actions/setup-python@v4
+    #   with:
+    #     python-version: 3.8
 
     - name: Set script permissions
       shell: bash
-      run: find $GITHUB_ACTION_PATH/dir -type f -name "*.sh" -exec chmod +x {} \;
-
-    - name: Run prepare
-      shell: bash
-      run: $GITHUB_ACTION_PATH/dir/prepare.sh
-
-    - name: Checkout main branch
+      run: find $GITHUB_ACTION_PATH/nics-compiler/workflows -type f -name "*.sh" -exec chmod +x {} \;
+    
+    - name: Checkout Load branch
       uses: actions/checkout@v3
       with:
         ref: main
 
-    - name: Run main
+    - name: Set up NICS working directory
       shell: bash
-      run: $GITHUB_ACTION_PATH/dir/main.sh
+      run: $GITHUB_ACTION_PATH/nics-compiler/workflows/setup-working-dir.sh
 
-    - shell: bash
-      env:
-        NICS_VERSION: ${{ inputs.foo }}
-        BAR: ${{ inputs.bar }}
-      run: |
-        chmod +x $GITHUB_ACTION_PATH/dir/prepare.sh
-        $GITHUB_ACTION_PATH/dir/prepare.sh
+    - name: Checkout Dock branch
+      uses: actions/checkout@v3
+      with:
+        ref: mocking-nics-workfloww
 
-        chmod +x $GITHUB_ACTION_PATH/dir/main.sh
-        $GITHUB_ACTION_PATH/dir/main.sh
+    - name: Compile
+      shell: bash
+      run: $GITHUB_ACTION_PATH/nics-compiler/workflows/compile.sh
+
+    - name: Deploy
+      shell: bash
+      run: $GITHUB_ACTION_PATH/nics-compiler/workflows/deploy.sh
