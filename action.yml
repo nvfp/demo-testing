@@ -13,13 +13,8 @@ inputs:
     description: xyz
     required: true
 
-# env:
-#   TESTFOO: ${{ inputs.foo }}
-
 runs:
   using: 'composite'
-  env:
-    TESTFOO: ${{ inputs.foo }}
   steps:
     # - name: Set up Python
     #   uses: actions/setup-python@v4
@@ -37,6 +32,8 @@ runs:
 
     - name: Set up NICS working directory
       shell: bash
+      env:
+        TESTFOO: ${{ inputs.foo }}
       run: $GITHUB_ACTION_PATH/nics-compiler/workflows/setup-working-dir.sh
 
     - name: Checkout Dock branch
