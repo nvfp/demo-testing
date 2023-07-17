@@ -65,15 +65,18 @@ runs:
         CONTAINER: ${{ inputs.container }}
       run: $GITHUB_ACTION_PATH/nics-compiler/workflows/setup-working-dir.sh
 
-    # - name: Checkout Dock branch
-    #   uses: actions/checkout@v3
-    #   with:
-    #     ref: ${{ inputs.dock }}
+    - name: Checkout Dock branch
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ inputs.dock }}
 
-    # - name: Compile
-    #   shell: bash
-    #   run: $GITHUB_ACTION_PATH/nics-compiler/workflows/compile.sh
+    - name: Compile
+      shell: bash
+      run: $GITHUB_ACTION_PATH/nics-compiler/workflows/compile.sh
 
-    # - name: Deploy
-    #   shell: bash
-    #   run: $GITHUB_ACTION_PATH/nics-compiler/workflows/deploy.sh
+    - name: Deploy
+      shell: bash
+      env:
+        GIT_NAME: ${{ inputs.git-name }}
+        GIT_EMAIL: ${{ inputs.git-email }}
+      run: $GITHUB_ACTION_PATH/nics-compiler/workflows/deploy.sh
