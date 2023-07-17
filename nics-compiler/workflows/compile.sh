@@ -4,7 +4,7 @@ echo "---"
 ls
 echo "---"
 
-echo "foo" > foo.txt
+echo "Test $(date)" > foo.txt
 
 echo "---"
 ls
