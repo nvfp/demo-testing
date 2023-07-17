@@ -11,48 +11,8 @@ inputs:
 runs:
   using: 'composite'
   steps:
-
-    - name: Set script permissions
-      shell: bash
-      run: find $GITHUB_ACTION_PATH/nics-compiler/workflows -type f -name "*.sh" -exec chmod +x {} \;
-    
-    - name: Debug
+    - name: foo
       shell: bash
       env:
-        LOAD: ${{ inputs.load }}
-        DOCK: ${{ inputs.dock }}
-        GIT_NAME: ${{ inputs.git-name }}
-        GIT_EMAIL: ${{ inputs.git-email }}
-        GH_REPO_NAME: ${{ inputs.gh-repo-name }}
-        CONTAINER: ${{ inputs.container }}
-      run: $GITHUB_ACTION_PATH/nics-compiler/workflows/debug.sh
-
-    - name: Checkout Load branch
-      uses: actions/checkout@v3
-      with:
-        ref: ${{ inputs.load }}
-    
-    - name: Set up NICS working directory
-      shell: bash
-      env:
-        GH_REPO_NAME: ${{ inputs.gh-repo-name }}
-        CONTAINER: ${{ inputs.container }}
-      run: $GITHUB_ACTION_PATH/nics-compiler/workflows/setup-working-dir.sh
-
-    - name: Checkout Dock branch
-      uses: actions/checkout@v3
-      with:
-        ref: ${{ inputs.dock }}
-
-    - name: Compile
-      shell: bash
-      env:
-        NICS_VERSION: ${{ inputs.nics-version }}
-      run: $GITHUB_ACTION_PATH/nics-compiler/workflows/compile.sh
-
-    - name: Deploy
-      shell: bash
-      env:
-        GIT_NAME: ${{ inputs.git-name }}
-        GIT_EMAIL: ${{ inputs.git-email }}
-      run: $GITHUB_ACTION_PATH/nics-compiler/workflows/deploy.sh
+        foo: ${{ inputs.foo }}
+      run: $GITHUB_ACTION_PATH/foo
