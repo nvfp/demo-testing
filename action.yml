@@ -37,7 +37,7 @@ runs:
     - name: Checkout Dock branch
       uses: actions/checkout@v3
       with:
-        ref: mocking-nics-workfloww
+        ref: mocking-nics-workflow
 
     - name: Compile
       shell: bash
