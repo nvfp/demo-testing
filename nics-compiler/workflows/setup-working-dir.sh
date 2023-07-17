@@ -1,11 +1,12 @@
 echo "::group::Set up NICS working directory"
 
-echo "setup-working-dir.sh: '$git_name'"
-echo "TESTFOO: '$TESTFOO'"
-ls
+cd ..
+mkdir __nics_work_dir__
+cp $GH_REPO/$CONTAINER/ __nics_work_dir__/
 
-echo "--"
-ls $GITHUB_ACTION_PATH/nics-compiler/compiler
-echo "--11414141422"
+echo "::debug::Foo"
+echo "---"
+ls __nics_work_dir__
+echo "---"
 
 echo "::endgroup::"

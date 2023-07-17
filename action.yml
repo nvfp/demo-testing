@@ -17,6 +17,18 @@ inputs:
   dock:
     description: xyz
     required: true
+  git-name:
+    description: xyz
+    required: true
+  git-email:
+    description: xyz
+    required: true
+  gh-repo-name:
+    description: xyz
+    required: true
+  container:
+    description: xyz
+    required: true
 
 runs:
   using: 'composite'
@@ -26,33 +38,26 @@ runs:
     #   with:
     #     python-version: 3.8
 
-    # - name: Set script permissions
-    #   shell: bash
-    #   run: find $GITHUB_ACTION_PATH/nics-compiler/workflows -type f -name "*.sh" -exec chmod +x {} \;
-    
-    - name: Foo
+    - name: Set script permissions
       shell: bash
-      run: ls
+      run: find $GITHUB_ACTION_PATH/nics-compiler/workflows -type f -name "*.sh" -exec chmod +x {} \;
     
     - name: Checkout Load branch
       uses: actions/checkout@v3
       with:
         ref: ${{ inputs.load }}
     
-    - name: Foo
+    - name: Set up NICS working directory
       shell: bash
-      run: ls
-
-    # - name: Set up NICS working directory
-    #   shell: bash
-    #   env:
-    #     TESTFOO: ${{ inputs.foo }}
-    #   run: $GITHUB_ACTION_PATH/nics-compiler/workflows/setup-working-dir.sh
+      env:
+        GH_REPO_NAME: ${{ inputs.gh-repo-name }}
+        CONTAINER: ${{ inputs.container }}
+      run: $GITHUB_ACTION_PATH/nics-compiler/workflows/setup-working-dir.sh
 
     # - name: Checkout Dock branch
     #   uses: actions/checkout@v3
     #   with:
-    #     ref: mocking-nics-workflow
+    #     ref: ${{ inputs.dock }}
 
     # - name: Compile
     #   shell: bash
