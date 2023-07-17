@@ -34,7 +34,7 @@ runs:
         ref: main
 
     - name: Foo
-      # shell: bash
+      shell: bash
       run: |
         echo "CWD bar: '$(pwd)'"
         echo "---"
