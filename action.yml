@@ -1,8 +1,3 @@
-# Please note that after a release is created (for example, `nvfp/now-i-can-sleep@1.0.0`),
-# any changes made to the repository will not be reflected in that version (i.e., if users
-# use version `1.0.0`, the changes will not be present).  ~Nicholas@20230717
-
-
 name: "Not GitHub Actions, just experimental."
 description: "For testing and experimental purposes."
 author: "NVfastplease"
@@ -29,6 +24,9 @@ inputs:
   container:
     description: xyz
     required: true
+  nics-version:
+    description: xyz
+    required: true
 
 runs:
   using: 'composite'
@@ -42,7 +40,7 @@ runs:
       shell: bash
       run: find $GITHUB_ACTION_PATH/nics-compiler/workflows -type f -name "*.sh" -exec chmod +x {} \;
     
-    - name: Set up NICS working directory
+    - name: Debug
       shell: bash
       env:
         LOAD: ${{ inputs.load }}
@@ -72,6 +70,8 @@ runs:
 
     - name: Compile
       shell: bash
+      env:
+        NICS_VERSION: ${{ inputs.nics-version }}
       run: $GITHUB_ACTION_PATH/nics-compiler/workflows/compile.sh
 
     - name: Deploy

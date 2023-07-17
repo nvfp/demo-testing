@@ -1,13 +1,7 @@
 echo "::group::Compile"
 
-echo "---"
-ls
-echo "---"
-
-echo "Test $(date)" > foo.txt
-
-echo "---"
-ls
-echo "---"
+python -m pip install --upgrade pip
+pip install nics==$NICS_VERSION
+nics -v
 
 echo "::endgroup::"
