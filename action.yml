@@ -21,7 +21,7 @@ runs:
       with:
         python-version: 3.8
 
-    - name: Run grant access
+    - name: Set script permissions
       shell: bash
       run: find $GITHUB_ACTION_PATH/dir -type f -name "*.sh" -exec chmod +x {} \;
 
