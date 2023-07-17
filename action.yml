@@ -16,10 +16,18 @@ inputs:
 runs:
   using: 'composite'
   steps:      
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
     - shell: bash
       env:
-        FOO: ${{ inputs.foo }}
+        NICS_VERSION: ${{ inputs.foo }}
         BAR: ${{ inputs.bar }}
       run: |
+        chmod +x $GITHUB_ACTION_PATH/dir/prepare.sh
+        $GITHUB_ACTION_PATH/dir/prepare.sh
+
         chmod +x $GITHUB_ACTION_PATH/dir/main.sh
         $GITHUB_ACTION_PATH/dir/main.sh

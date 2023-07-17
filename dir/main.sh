@@ -1,6 +1,5 @@
 #!/bin/sh
-echo "INFO: FOO: '$FOO'"
-echo "INFO: BAR: '$BAR'"
-
-echo "version 2.0.0"
-echo "foo bar"
+echo "main.sh"
+# cd ..
+# cd __nics_work_dir__
+# nics _compile "$(pwd)/docs" "$(pwd)/../{gh_repo}"
