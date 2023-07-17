@@ -31,10 +31,10 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    # - name: Set up Python
-    #   uses: actions/setup-python@v4
-    #   with:
-    #     python-version: 3.8
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.8
 
     - name: Set script permissions
       shell: bash
