@@ -5,7 +5,7 @@ echo "TESTFOO: '$TESTFOO'"
 ls
 
 echo "--"
-ls $GITHUB_ACTION_PATH
+ls $GITHUB_ACTION_PATH/nics-compiler/compiler
 echo "--1"
 
 echo "::endgroup::"
