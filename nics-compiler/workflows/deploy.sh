@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Exit the script immediately if any command exits with a non-zero status
-set -e
+# 'set -e' doesn’t have to be set to turn off the error when committing with no changes
+# set -e
 
 
 echo "::group::Commit the changes on Dock branch"
