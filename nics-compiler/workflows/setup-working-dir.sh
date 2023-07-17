@@ -1,3 +1,3 @@
-echo "setup-working-dir.sh: '$foo'"
+echo "setup-working-dir.sh: '$git_name'"
 ls
 echo "------"
