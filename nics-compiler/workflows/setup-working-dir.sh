@@ -6,6 +6,6 @@ ls
 
 echo "--"
 ls $GITHUB_ACTION_PATH/nics-compiler/compiler
-echo "--1"
+echo "--11414141422"
 
 echo "::endgroup::"
