@@ -1,4 +1,4 @@
-echo "::group:: Compile"
+echo "::group::Compile"
 
 echo "---"
 ls
