@@ -72,11 +72,7 @@ runs:
       shell: bash
       env:
         NICS_VERSION: ${{ inputs.nics-version }}
-      # run: $GITHUB_ACTION_PATH/nics-compiler/workflows/compile.sh
-      run: |
-        python -m pip install --upgrade pip
-        pip install nics==$NICS_VERSION
-        nics -v
+      run: $GITHUB_ACTION_PATH/nics-compiler/workflows/compile.sh
 
     - name: Deploy
       shell: bash

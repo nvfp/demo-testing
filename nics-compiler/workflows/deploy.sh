@@ -1,7 +1,5 @@
-echo "::group::Deploy"
+echo "::group::Commit the changes on Dock branch"
 
-
-echo "INFO: Committing."
 
 # Note: If there are no changes, the workflow will still be marked as a success,
 # instead of failing as it would when performing git-commit-with-no-changes within a single
