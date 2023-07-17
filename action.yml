@@ -1,3 +1,8 @@
+# Please note that after a release is created (for example, `nvfp/now-i-can-sleep@1.0.0`),
+# any changes made to the repository will not be reflected in that version (i.e., if users
+# use version `1.0.0`, the changes will not be present).
+
+
 name: "Not GitHub Actions, just experimental."
 description: "For testing and experimental purposes."
 author: "NVfastplease"
