@@ -1,3 +1,9 @@
+#!/bin/bash
+
+# Exit the script immediately if any command exits with a non-zero status
+set -e
+
+
 echo "::group::Commit the changes on Dock branch"
 
 
