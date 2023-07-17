@@ -36,9 +36,11 @@ runs:
     - name: Foo
       shell: bash
       run: |
+        echo "::group:: Title 1"
         echo "CWD bar: '$(pwd)'"
         echo "---"
         ls
+        echo "::endgroup::"
 
     - shell: bash
       env:
