@@ -17,9 +17,26 @@ runs:
   using: 'composite'
   steps:      
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: 3.8
+
+    - name: Foo
+      run: |
+        echo "CWD foo: '$(pwd)'"
+        echo "---"
+        ls
+
+    - name: Checkout main branch
+      uses: actions/checkout@v3
+      with:
+        ref: main
+
+    - name: Foo
+      run: |
+        echo "CWD bar: '$(pwd)'"
+        echo "---"
+        ls
 
     - shell: bash
       env:
