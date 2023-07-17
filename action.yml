@@ -13,6 +13,9 @@ inputs:
     description: xyz
     required: true
 
+env:
+  TESTFOO: ${{ inputs.foo }}
+
 runs:
   using: 'composite'
   steps:
