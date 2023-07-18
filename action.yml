@@ -6,13 +6,18 @@ branding:
   color: orange
 
 inputs:
-  # 
+  # xyz:
 
 runs:
   using: 'composite'
   steps:
     - name: foo
       shell: bash
-      env:
-        foo: ${{ inputs.foo }}
-      run: $GITHUB_ACTION_PATH/foo
+      # env:
+      #   foo: ${{ inputs.foo }}
+      run: |
+        chmod +x $GITHUB_ACTION_PATH/dir/main.sh
+        $GITHUB_ACTION_PATH/dir/main.sh
+    
+    - shell: bash
+      run: echo "xyz123"

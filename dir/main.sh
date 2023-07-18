@@ -1,5 +1,5 @@
-#!/bin/sh
-echo "main.sh"
-# cd ..
-# cd __nics_work_dir__
-# nics _compile "$(pwd)/docs" "$(pwd)/../{gh_repo}"
+#!/bin/bash
+
+echo "foo"
+python $GITHUB_ACTION_PATH/dir/dummy-py.py
+echo "bar"
