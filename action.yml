@@ -5,8 +5,8 @@ branding:
   icon: alert-triangle
   color: orange
 
-inputs:
-  # xyz:
+# inputs:
+#   xyz:
 
 runs:
   using: 'composite'
