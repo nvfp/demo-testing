@@ -19,5 +19,3 @@ runs:
         chmod +x $GITHUB_ACTION_PATH/dir/main.sh
         $GITHUB_ACTION_PATH/dir/main.sh
     
-    - shell: bash
-      run: echo "xyz123"
