@@ -1,0 +1,11 @@
+name: Will be triggered from the outside
+
+on: [repository_dispatch]
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: foo
+        run: |
+          echo "foo"
