@@ -1,6 +1,6 @@
 name: Will be triggered from the outside
 
-on: [repository_dispatch]
+on: workflow_dispatch
 
 jobs:
   job1:
@@ -8,4 +8,4 @@ jobs:
     steps:
       - name: foo
         run: |
-          echo "foo"
+          echo "Time: $(date)"
