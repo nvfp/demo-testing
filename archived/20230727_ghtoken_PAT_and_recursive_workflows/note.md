@@ -1,0 +1,1 @@
+There's an exception when triggering a workflow from another workflow. GH Action prevents unintentional recursive workflow runs. To run a workflow that triggers other workflows, a PAT is needed.
