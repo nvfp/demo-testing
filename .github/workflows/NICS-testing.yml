@@ -10,6 +10,8 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.NICS_TESTING_REMOTE_TEST_PAT }}
       - name: Run
         env:
           GITHUB_TOKEN: ${{ secrets.NICS_TESTING_REMOTE_TEST_PAT }}
