@@ -26,23 +26,23 @@ jobs:
 
 
     ## test II: worked
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.NICS_TESTING_REMOTE_TEST_PAT }}  # the PAT has `Read and Write access to code and workflows`, note: "code" is "contents"
-      - name: commit
-        run: |
-          # Modify
-          echo $(date +'%Y-%m-%d %H:%M:%S') > test/file.txt
+    # steps:
+    #   - uses: actions/checkout@v3
+    #     with:
+    #       token: ${{ secrets.NICS_TESTING_REMOTE_TEST_PAT }}  # the PAT has `Read and Write access to code and workflows`, note: "code" is "contents"
+    #   - name: commit
+    #     run: |
+    #       # Modify
+    #       echo $(date +'%Y-%m-%d %H:%M:%S') > test/file.txt
 
-          # Commit
-          git config user.name "test disable recursive prevention"
-          git config user.email "nicho@scapeville.com"
+    #       # Commit
+    #       git config user.name "test disable recursive prevention"
+    #       git config user.email "nicho@scapeville.com"
 
-          git add .
-          git commit -m "test disable recursive prevention"
+    #       git add .
+    #       git commit -m "test disable recursive prevention"
 
-          git push
+    #       git push
 
 
 
@@ -64,3 +64,25 @@ jobs:
     #       git commit -m "test disable recursive prevention"
 
     #       git push
+
+
+
+    ## test IV
+    permissions:
+      contents: write
+      workflows: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: commit
+        run: |
+          # Modify
+          echo $(date +'%Y-%m-%d %H:%M:%S') > test/file.txt
+
+          # Commit
+          git config user.name "test disable recursive prevention"
+          git config user.email "nicho@scapeville.com"
+
+          git add .
+          git commit -m "test disable recursive prevention"
+
+          git push
