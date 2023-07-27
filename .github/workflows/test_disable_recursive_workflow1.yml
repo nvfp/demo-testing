@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.NICS_TESTING_REMOTE_TEST_PAT }}
       - name: commit
         run: |
           # Modify
