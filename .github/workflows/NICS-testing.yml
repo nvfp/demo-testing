@@ -1,0 +1,11 @@
+# name: NICS testing
+
+# on: workflow_dispatch
+
+# jobs:
+#   run:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: foo
+#         run: |
+#           echo "Time: $(date)"
