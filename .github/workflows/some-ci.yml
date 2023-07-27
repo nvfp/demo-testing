@@ -3,7 +3,7 @@ name: always run
 on:
   push:
     branches:
-      - main
+      - mainxyz
 
 jobs:
   test-job:

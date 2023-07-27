@@ -1,0 +1,14 @@
+name: test disable gh action recursive workflow prevention (child/downstream workflow)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run
+        run: |
+          echo "foo"

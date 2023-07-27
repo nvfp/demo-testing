@@ -1,0 +1,22 @@
+name: test disable gh action recursive workflow prevention (triggering workflow)
+
+on: workflow_dispatch
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: commit
+        run: |
+          # Modify
+          echo $(date +'%Y-%m-%d') > test/file.txt
+
+          # Commit
+          git config user.name "test disable recursive prevention"
+          git config user.email "nicho@scapeville.com"
+
+          git add .
+          git commit -m "test disable recursive prevention"
+
+          git push
