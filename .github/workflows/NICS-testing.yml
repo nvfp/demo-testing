@@ -1,40 +1,38 @@
-# name: NICS testing
+name: NICS testing
 
-# on: workflow_dispatch
+on: workflow_dispatch
 
-# jobs:
-#   run:
-#     runs-on: ubuntu-latest
-#     permissions:
-#       contents: write
-#     steps:
-#       - uses: actions/checkout@v3
-#         # with:
-#         #   token: ${{ secrets.NICS_TESTING_REMOTE_TEST_PAT }}
-#       - name: Run
-#         run: |
-#           echo "::group::Install 1"
-#           pip install -U nics --pre
-#           echo "::endgroup::"
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.NICS_TESTING_REMOTE_TEST_PAT }}
+      - name: Run
+        run: |
+          echo "::group::Install 1"
+          pip install -U nics --pre
+          echo "::endgroup::"
 
-#           echo "::group::Install 2"
-#           pip install -U nics --pre
-#           echo "::endgroup::"
+          echo "::group::Install 2"
+          pip install -U nics --pre
+          echo "::endgroup::"
 
-#           echo "NICS version: '$(nics -v)'"
+          echo "NICS version: '$(nics -v)'"
 
-#           echo "::group::Upgrading"
-#           nics upgrade -L debug
-#           echo "::endgroup::"
+          echo "::group::Upgrading"
+          nics upgrade -L debug
+          echo "::endgroup::"
 
-#           git config user.name "NICS 3.0.0 testing"
-#           git config user.email "nicho@scapeville.com"
+          git config user.name "NICS 3.0.0 testing"
+          git config user.email "nicho@scapeville.com"
 
-#           git add .
+          git add .
 
-#           echo "::group::Changes"
-#           git diff --cached
-#           echo "::endgroup::"
+          echo "::group::Changes"
+          git diff --cached
+          echo "::endgroup::"
 
-#           git commit -m "testing $(nics -v)"
-#           git push
+          git commit -m "testing $(nics -v)"
+          git push
