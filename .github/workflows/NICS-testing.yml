@@ -6,15 +6,12 @@ jobs:
   run:
     runs-on: ubuntu-latest
     permissions:
-      actions: write
       contents: write
     steps:
       - uses: actions/checkout@v3
         with:
           token: ${{ secrets.NICS_TESTING_REMOTE_TEST_PAT }}
       - name: Run
-        env:
-          GITHUB_TOKEN: ${{ secrets.NICS_TESTING_REMOTE_TEST_PAT }}
         run: |
           echo "::group::Install 1"
           pip install -U nics --pre
@@ -41,15 +38,3 @@ jobs:
 
           git commit -m "testing $(nics -v)"
           git push
-
-      - name: Run
-        uses: actions/github-script@v6
-        with:
-          github-token: ${{ secrets.NICS_TESTING_REMOTE_TEST_PAT }}  # Note, PAT token needs to be updated if it has expired
-          script: |
-            await github.rest.actions.createWorkflowDispatch({
-              owner: 'nvfp',
-              repo: 'demo-testing',
-              workflow_id: 'rebuild-docs.yml',
-              ref: 'main'
-            })
