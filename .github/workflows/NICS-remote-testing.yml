@@ -1,4 +1,4 @@
-name: NICS testing
+name: NICS remote testing
 
 on: workflow_dispatch
 
