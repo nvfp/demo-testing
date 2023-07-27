@@ -33,7 +33,7 @@ jobs:
       - name: commit
         run: |
           # Modify
-          echo $(date +'%Y-%m-%d') > test/file.txt
+          echo $(date +'%Y-%m-%d %H:%M:%S') > test/file.txt
 
           # Commit
           git config user.name "test disable recursive prevention"
