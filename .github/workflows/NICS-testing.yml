@@ -11,11 +11,11 @@ jobs:
       - name: Run
         run: |
           echo "::group::Install 1"
-          pip install -U nics
+          pip install -U nics --pre
           echo "::endgroup::"
 
           echo "::group::Install 2"
-          pip install -U nics
+          pip install -U nics --pre
           echo "::endgroup::"
 
           echo "NICS version: '$(nics -v)'"
